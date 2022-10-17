@@ -724,7 +724,7 @@ if ($HIP_PLATFORM eq "amd") {
       }
       # To support __fp16 and _Float16, explicitly link with compiler-rt
       $HIP_CLANG_BUILTIN_LIB="$HIP_CLANG_PATH/../lib/clang/$HIP_CLANG_VERSION/lib/$HIP_CLANG_TARGET/libclang_rt.builtins.a";
-      if (-e $HIP_CLANG_BUILTIN_LIB) {
+      if ($HIP_CLANG_BUILTIN_LIB) {
         $toolArgs .= " -L$HIP_CLANG_PATH/../lib/clang/$HIP_CLANG_VERSION/lib/$HIP_CLANG_TARGET -lclang_rt.builtins "
       } else {
         $toolArgs .= " -L$HIP_CLANG_PATH/../lib/clang/$HIP_CLANG_VERSION/lib/linux -lclang_rt.builtins-x86_64 "
